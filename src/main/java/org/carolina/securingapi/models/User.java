@@ -19,6 +19,7 @@ public class User {
     @Column(nullable = false)
     private String role; // For role-based access control
 
+    // Default constructor, getters, and setters
     public User() {}
 
     public User(String username, String password, String role) {
