@@ -1,6 +1,5 @@
 package org.carolina.securingapi.security;
 
-import org.carolina.securingapi.services.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,11 +17,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     private final JwtRequestFilter jwtRequestFilter;
-    private final UserService userService;
+    private final UserDetailsService userDetailsService;  // Changed from UserService to UserDetailsService
 
-    public SecurityConfig(JwtRequestFilter jwtRequestFilter, UserService userService) {
+    public SecurityConfig(JwtRequestFilter jwtRequestFilter, UserDetailsService userDetailsService) {
         this.jwtRequestFilter = jwtRequestFilter;
-        this.userService = userService;
+        this.userDetailsService = userDetailsService;
     }
 
     @Bean
