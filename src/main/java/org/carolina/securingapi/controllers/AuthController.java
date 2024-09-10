@@ -11,6 +11,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.access.prepost.PreAuthorize;
+
 
 import java.util.Collections;
 
@@ -46,6 +48,13 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
         }
     }
+
+    @GetMapping("/admin")
+    @PreAuthorize("hasRole('ADMIN')")  // Secured for ADMIN role
+    public ResponseEntity<String> adminAccess() {
+        return ResponseEntity.ok("This is an admin-only endpoint");
+    }
 }
+
 
 

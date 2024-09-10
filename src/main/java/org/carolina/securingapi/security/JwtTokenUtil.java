@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 import java.util.function.Function;
 
-@Component
+@Component  // Ensure this is present
 public class JwtTokenUtil {
 
-    private String SECRET_KEY = "secret"; // Use a strong secret key for production
+    private String SECRET_KEY = "secret"; // Use a strong secret in production
 
     public String getUsernameFromToken(String token) {
         return extractClaim(token, Claims::getSubject);
@@ -49,5 +49,6 @@ public class JwtTokenUtil {
                 .compact();
     }
 }
+
 
 
