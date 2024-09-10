@@ -17,7 +17,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     private final JwtRequestFilter jwtRequestFilter;
-    private final UserService userService; // UserService can still be used in the config
+    private final UserService userService;
 
     public SecurityConfig(JwtRequestFilter jwtRequestFilter, UserService userService) {
         this.jwtRequestFilter = jwtRequestFilter;
@@ -46,3 +46,5 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
+
+
